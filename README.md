@@ -41,7 +41,7 @@ cd proyecto-web-docker
 ### 2. Levantar los contenedores
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Esto crea y ejecuta:
