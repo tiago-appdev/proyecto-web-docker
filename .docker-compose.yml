@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    container_name: proyecto-web
+    ports:
+      - "8082:80"
+    networks:
+      - red-app
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    container_name: proyecto-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: miappdb
+      MYSQL_USER: tiago
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3307:3306"
+    networks:
+      - red-app
+    volumes:
+      - db_data:/var/lib/mysql
+
+networks:
+  red-app:
+
+volumes:
+  db_data:
