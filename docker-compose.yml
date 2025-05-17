@@ -22,6 +22,7 @@ services:
     networks:
       - red-app # Red de la aplicación
     volumes:
+      - ./mysql-init:/docker-entrypoint-initdb.d # Inicialización de la base de datos
       - db_data:/var/lib/mysql # Persistencia de datos
 
 networks: # Red de la aplicación

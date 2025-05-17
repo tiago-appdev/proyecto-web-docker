@@ -1,5 +1,5 @@
 <?php
-$host = 'mysql-db';
+$host = 'db';
 $db = 'miappdb';
 $user = 'root';
 $pass = 'rootpass';
