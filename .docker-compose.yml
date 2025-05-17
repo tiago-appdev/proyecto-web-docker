@@ -1,31 +1,31 @@
 services:
-  web:
+  web: # Aplicación web
     build: .
-    container_name: proyecto-web
+    container_name: proyecto-web # Nombre del contenedor de la aplicación web
     ports:
-      - "8082:80"
+      - "8082:80" # Mapeo de puertos
     networks:
-      - red-app
+      - red-app # Red de la aplicación
     depends_on:
-      - db
+      - db # Dependencia del contenedor de la base de datos
 
   db:
     image: mysql
-    container_name: proyecto-db
-    environment:
+    container_name: proyecto-db # Nombre del contenedor de la base de datos
+    environment: # Variables de entorno para la base de datos
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: miappdb
       MYSQL_USER: tiago
       MYSQL_PASSWORD: admin
     ports:
-      - "3307:3306"
+      - "3307:3306" # Mapeo de puertos
     networks:
-      - red-app
+      - red-app # Red de la aplicación
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/mysql # Persistencia de datos
 
-networks:
+networks: # Red de la aplicación
   red-app:
 
-volumes:
+volumes: # Volumen para la persistencia de datos de la base de datos
   db_data:
